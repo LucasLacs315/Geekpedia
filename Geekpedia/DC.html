@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>dc</title>
+<link rel="stylesheet" type="text/css" href="CSS/Aparte.css">
+
+
+</head>
+<body>
+<button class="tablink" onclick="openPage('Home', this, 'red')" id="defaultOpen">Superman</button>
+
+<button class="tablink" onclick="openPage('Contact', this, 'Darkred')">Flash</button>
+
+<button class="tablink" onclick="openPage('About', this, 'DarkSlategrey')">Homem-Hora</button>
+<button class="tablink" onclick="openPage('News', this, 'darkorange')">Senhor Destino</button>
+
+
+<div id="Home" class="tabcontent">
+  <h3>Superman <br/>
+  Clark Kent</h3>
+
+  <div id="superman"><img src="img/spm.jpg" width="550"></div>
+
+    <p>Superman ou Super-Homem é um super-herói de histórias
+    <br/>em quadrinhos publicadas pela DC Comics. O personagem,
+    <br/>entretanto, desde os anos 1930, já foi adaptado para 
+    <br/>diversos outros meios, como cinema, rádio, televisão, 
+    <br/>literatura e video game. Superman foi criado pela dupla 
+    <br/>de autores de quadrinhos Joe Shuster e Jerry Siegel. 
+    <br/>Sua primeira aparição aconteceu no verão de 1938, na 
+    <br/>revista Action Comics #1. O personagem nasceu no planeta
+    <br/>fictício Krypton e tinha o nome de Kal-El. Foi enviado à 
+    <br/>Terra por seu pai cientista, Jor-El, momentos antes de 
+    <br/>Krypton explodir.</p>
+</div>
+
+<div id="News" class="tabcontent">
+  <h3>Senhor Destino <br/>
+     Kent Nelson
+  </h3>
+
+   <div id="drfate"><img src="img/df2.jpg" width="570"></div>
+
+    <p>Quando acompanhando o pai numa escavação arqueológica
+    <br/>no vale de Ur, na Mesopotamia, o garoto Kent Nelson
+    <br/>encontrou a tumba de Nabu, um Lorde da Ordem em animação
+    <br/>suspensa. A ressurreição de Nabu expeliu gases que mataram
+    <br/>o pai de Kent, deixando-o sozinho para ser díscipulo de Nabu,
+    <br/>Primeira Aparição: More Fun Comics #55 (maio 1940).</p> 
+
+</div>
+
+<div id="Contact" class="tabcontent">
+  <h3>Flash<br/>
+  Barry Allen</h3>
+
+   <div id="flash"><img src="img/flash.jpg" width="510"></div>
+
+  <p>The Flash (ou simplesmente Flash) é o nome de vários super-heróis
+  <br/>que aparecem nos quadrinhos americanos publicados pela DC Comics.
+  <br/>Criado pelo escritor Gardner Fox e pelo artista Harry Lampert, o
+  <br/>Flash original apareceu pela primeira vez em Flash Comics #1
+  <br/>(data de capa janeiro de 1940/mês de lançamento novembro de 1939).
+  <br/>Apelidado de "Scarlet Speedster", todas as encarnações do Flash 
+  <br/>possuem "super velocidade", que inclui a capacidade de correr, 
+  <br/>mover e pensar extremamente rápido, usar reflexos sobre-humanos
+  <br/>e aparentemente violar certas leis da física.</p>
+</div>
+
+<div id="About" class="tabcontent">
+  <h3>Homem-Hora <br/>
+  Rex Tyler</h3>
+
+   <div id="hourman"><img src="img/hm.jpg" width="525"></div>
+
+    <p>Hourman ou Hour-Man é o nome de três diferentes super- heróis
+    <br/>fictícios que aparecem nos quadrinhos publicados pela DC Comics.
+    <br/>O Homem-Hora original foi criado pelo escritor Ken Fitch e pelo
+    <br/>artista Bernard Baily em Adventure Comics #48 (março de 1940),
+    <br/>durante a Era de Ouro dos Quadrinhos. O primeiro Homem-Hora é o
+    <br/>químico Rex Tyler, que cria uma nova síntese, "Miraclo", que lhe 
+    <br/>concede super-força e resistência, mas apenas por uma hora.</p>
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+ 
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>
